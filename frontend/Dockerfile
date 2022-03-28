@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 ARG REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
-COPY . /usr/src/app
+COPY .frontend /usr/src/app
 RUN npm install
 RUN npm run build
 

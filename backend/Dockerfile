@@ -11,10 +11,8 @@ ENV DB_PASSWORD=${DB_PASSWORD}
 ARG DB_NAME=${DB_NAME}
 ENV DB_NAME=${DB_NAME}
 
-COPY ./backend/.package*.json ./
+COPY ./backend .
 
 RUN npm install
-
-COPY ./backend .
 
 CMD [ "npm", "start" ]
