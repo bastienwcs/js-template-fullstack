@@ -10,10 +10,8 @@ RUN npm install
 RUN npm run build
 
 # production environment
-FROM nginx:1.13.9-alpine
-RUN rm -rf /etc/nginx/conf.d
-RUN mkdir -p /etc/nginx/conf.d
-COPY --from=builder /default.conf /etc/nginx/conf.d/
+FROM nginx:1.15
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+COPY --from=builder /nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 8000
 CMD ["nginx", "-g", "daemon off;"]
