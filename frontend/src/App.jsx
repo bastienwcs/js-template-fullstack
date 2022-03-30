@@ -9,6 +9,7 @@ function App() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/items`)
       .then((response) => {
+        console.error(response);
         setDatas(response.data);
       })
       .catch((error) => {
@@ -20,7 +21,7 @@ function App() {
     <div className="App">
       <ul>
         {datas.map((data) => (
-          <li>{JSON.stringify(data)}</li>
+          <li key={data.id}>{data.title}</li>
         ))}
       </ul>
     </div>
