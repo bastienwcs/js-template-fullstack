@@ -6,6 +6,7 @@ function App() {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
+    console.error("VITE_BACKEND_URL", import.meta.env.VITE_BACKEND_URL);
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/items`)
       .then((response) => {
